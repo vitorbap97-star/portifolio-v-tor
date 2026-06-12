@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Vitor</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 100px 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      scroll-margin-top: 90px;
+    }
+
+    h2 {
+      border-left: 5px solid #00bcd4;
+      padding-left: 10px;
+    }
+
+    .card {
+      background: #eee;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #0097a7;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: white;
+    }
+
+    a.link {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<nav>
+  <a href="#sobre">Sobre mim</a>
+  <a href="#formacao">Formação</a>
+  <a href="#portfolio">Portfólio</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<!-- SOBRE MIM -->
+<section id="sobre">
+  <h2>Sobre mim</h2>
+
+  <p>
+    Me chamo Vitor e estou estudando desenvolvimento web. Tenho interesse em tecnologia,
+    especialmente desenvolvimento front-end.
+  </p>
+
+  <p><strong>Informações pessoais:</strong> Brasileiro, estudante de programação.</p>
+
+  <p><strong>Hobbies:</strong> tecnologia, jogos, motocicletas e aprendizado contínuo.</p>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <h2>Formação</h2>
+
+  <ul>
+    <li>Ensino médio (em andamento ou concluído)</li>
+    <li>Curso: Fundamentos da Programação Web - UNINTER</li>
+    <li>Idiomas: Português (nativo), Inglês (básico/intermediário)</li>
+    <li>Estudos: HTML, CSS e JavaScript</li>
+  </ul>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio">
+  <h2>Portfólio</h2>
+
+  <div class="card">
+    <h3>Site pessoal</h3>
+    <p>Projeto de portfólio em HTML e CSS.</p>
+    <a class="link" href="https://github.com/" target="_blank">Ver projeto</a>
+  </div>
+
+  <div class="card">
+    <h3>Calculadora JS</h3>
+    <p>Projeto com JavaScript para lógica de programação.</p>
+    <a class="link" href="https://github.com/" target="_blank">Ver projeto</a>
+  </div>
+
+  <div class="card">
+    <h3>To-do list</h3>
+    <p>Lista de tarefas interativa com JavaScript.</p>
+    <a class="link" href="https://github.com/" target="_blank">Ver projeto</a>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Contato</h2>
+
+  <form id="formContato">
+    <input type="text" id="nome" placeholder="Seu nome">
+    <input type="email" id="email" placeholder="Seu email">
+    <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="status"></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 - Portfólio desenvolvido por Vitor</p>
+</footer>
+
+<!-- JS: validação + simulação envio -->
+<script>
+  const form = document.getElementById("formContato");
+  const status = document.getElementById("status");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    // VALIDAÇÃO (exigido no trabalho)
+    if (!nome || !email || !mensagem) {
+      status.textContent = "Preencha todos os campos antes de enviar!";
+      status.style.color = "red";
+      return;
+    }
+
+    // SIMULAÇÃO DE ENVIO
+    status.textContent = "Mensagem enviada com sucesso!";
+    status.style.color = "green";
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
